@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exam/weather_app/MyLocation.dart';
 import 'package:flutter_exam/weather_app/Weather_screen.dart';
-
 import 'Network.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 const api_key = "d408636772247d11fd077b7e4113b96d";
 
 class WeatherMain extends StatefulWidget {
@@ -20,16 +22,22 @@ class _WeatherMainState extends State<WeatherMain> {
     await location.getLocation();
     latitude3 = location.latitude2;
     longitude3 = location.longitude2;
-    var parsingData = await Network(url: getUrl()).fetchData();
+    var network = Network(url: getUrl(), url2: getUrl2());
+    var parsingData = await network.fetchData();
+    var airData = await network.fetchAirData();
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                Weather_screen(parseWeatherData: parsingData)));
+            builder: (context) => Weather_screen(
+                parseWeatherData: parsingData, airPollutionData: airData)));
   }
 
   String getUrl() {
     return "https://api.openweathermap.org/data/2.5/weather?lat=$latitude3&lon=$longitude3&appid=$api_key&units=metric";
+  }
+
+  String getUrl2() {
+    return "http://api.openweathermap.org/data/2.5/air_pollution?lat=$latitude3&lon=$longitude3&appid=$api_key";
   }
 
   @override
