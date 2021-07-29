@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exam/weather_app/MyLocation.dart';
 import 'package:flutter_exam/weather_app/Weather_screen.dart';
 import 'Network.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 const api_key = "d408636772247d11fd077b7e4113b96d";
 
@@ -15,6 +14,12 @@ class WeatherMain extends StatefulWidget {
 class _WeatherMainState extends State<WeatherMain> {
   double latitude3 = 0.0;
   double longitude3 = 0.0;
+
+
+  @override
+  void initState() {
+    callAPI();
+  }
 
   //await는 future의 값이 return될 때 까지 기다려야 한다는 의미이다.
   Future<void> callAPI() async {
@@ -43,24 +48,37 @@ class _WeatherMainState extends State<WeatherMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Weather App',
-            style: TextStyle(color: Colors.white, fontSize: 16.0)),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.amber,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  callAPI();
-                },
-                child: Text('Get my Location')),
-          ],
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 80.0,
         ),
       ),
     );
   }
+
+// @override
+// Widget build(BuildContext context) {
+//   return Scaffold(
+//     appBar: AppBar(
+//       title: Text('Weather App',
+//           style: TextStyle(color: Colors.white, fontSize: 16.0)),
+//       backgroundColor: Colors.blue,
+//       centerTitle: true,
+//     ),
+//     body: Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           ElevatedButton(
+//               onPressed: () {
+//               },
+//               child: Text('Get my Location')),
+//         ],
+//       ),
+//     ),
+//   );
+// }
+
 }

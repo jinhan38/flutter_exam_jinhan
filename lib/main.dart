@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exam/future_async_await/FutureTest.dart';
+import 'package:flutter_exam/hamburger/Hamburger.dart';
 import 'package:flutter_exam/weather_app/WeatherMain.dart';
-
 import 'login_dice/LoginDiceApp.dart';
 import 'login_with_firebase/LoginWithFirebase.dart';
 
@@ -13,15 +13,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'jinhanExample',
-      // home: LoginDiceApp(),
-      theme: ThemeData(primaryColor: Colors.blue),
+      // theme: ThemeData(primaryColor: Colors.blue),
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(color: Colors.teal, centerTitle: true),
+          primaryColor: Colors.blue,
+          floatingActionButtonTheme:
+              FloatingActionButtonThemeData(backgroundColor: Colors.orange),
+          bottomAppBarColor: Colors.teal),
       initialRoute: '/home',
       routes: {
         '/home': (context) => Home(),
         '/dice': (context) => LoginDiceApp(),
         '/snsLogin': (context) => LoginWithFirebase(),
-        '/futureTest' : (context) => FutureTest(),
-        '/weatherApp' : (context) => WeatherMain(),
+        '/futureTest': (context) => FutureTest(),
+        '/weatherApp': (context) => WeatherMain(),
+        '/hamburgerApp': (context) => Hamburger(),
         // '/future_async_await': (context) => Future_(),
       },
     );
@@ -44,8 +50,13 @@ class Home extends StatelessWidget {
           SizedBox(height: 15.0),
           moveButton(context: context, pushNamed: "/dice", text: '로그인/주사위'),
           moveButton(context: context, pushNamed: "/snsLogin", text: 'SNS 로그인'),
-          moveButton(context: context, pushNamed: "/futureTest", text: 'Future Test basic'),
+          moveButton(
+              context: context,
+              pushNamed: "/futureTest",
+              text: 'Future Test basic'),
           moveButton(context: context, pushNamed: "/weatherApp", text: '날씨앱'),
+          moveButton(
+              context: context, pushNamed: "/hamburgerApp", text: '햄버거앱'),
         ],
       ),
     );

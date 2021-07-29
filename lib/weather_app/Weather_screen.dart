@@ -46,7 +46,7 @@ class _Weather_screenState extends State<Weather_screen> {
     int index = air['list'][0]['main']['aqi'];
     airIcon = Model().getAirIcon(index);
     airState = Model().getAirCondition(index);
-    dust1 = air['list'][0]['components']['pm10'];
+    dust1 = air['list'][0]['components'][ 'pm10'];
     dust2 = air['list'][0]['components']['pm2_5'];
   }
 
@@ -56,7 +56,7 @@ class _Weather_screenState extends State<Weather_screen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext contexts) {
     return Scaffold(
       extendBodyBehindAppBar: true, //body를 앱바 위치까지 확장한다는 의미
       appBar: AppBar(
