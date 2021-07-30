@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exam/hamburger/Categories.dart';
+import 'package:flutter_exam/hamburger/HambugerList.dart';
 
 import 'Header.dart';
 
@@ -25,9 +27,9 @@ class _HamburgerState extends State<Hamburger> {
             ],
           ),
           Header(),
-          SliverList(
-              delegate: SliverChildListDelegate(
-                  [Text("Hamburger", style: TextStyle(fontSize: 300))])),
+          Categories(),
+          HamburgerList(row: 1),
+          HamburgerList(row: 2),
         ],
       ),
       extendBody: true,

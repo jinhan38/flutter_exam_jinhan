@@ -11,7 +11,6 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     //디바이스의 사이즈를 구해온다.
     Size size = MediaQuery.of(context).size;
-    print("사이즈 확인 ${size.height}");
     return SliverList(
       delegate: SliverChildListDelegate(
         [
@@ -21,7 +20,7 @@ class _HeaderState extends State<Header> {
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 15.0),
-                    height: size.height / 5,
+                    height: size.height / 4,
                     decoration: BoxDecoration(
                       color: Colors.teal,
                       borderRadius: BorderRadius.vertical(
@@ -88,6 +87,7 @@ class _HeaderState extends State<Header> {
                   width: size.width,
                   height: 50,
                   child: Card(
+                    color: Colors.white,
                     elevation: 3,
                     margin: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(

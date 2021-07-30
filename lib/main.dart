@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'jinhanExample',
       // theme: ThemeData(primaryColor: Colors.blue),
       theme: ThemeData(
+          cardColor: Colors.teal,
           appBarTheme: AppBarTheme(color: Colors.teal, centerTitle: true),
           primaryColor: Colors.blue,
           floatingActionButtonTheme:
